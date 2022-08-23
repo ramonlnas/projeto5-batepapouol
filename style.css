@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+.app {
+    margin: 80px 0;
+}
+.menu-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 23px 0 23px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    background: #FFFFFF;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.menu-topo img {
+    width: 75px;
+    height: 53px;
+}
+.menu-topo ion-icon {
+    width: 42px;
+    height: 31px;
+}
+
+.main {
+    height: 507px;
+    background-color: #E5E5E5;
+    padding: 26px 8px 0 8px;
+}
+
+.footer {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px 0 18px;
+    background: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+
+}
+
+.footer ion-icon {
+    width: 26px;
+    height: 26px;
+}
