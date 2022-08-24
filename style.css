@@ -6,6 +6,8 @@
 
 .app {
     margin: 80px 0;
+    background-color: #E5E5E5;
+    height: 100%;
 }
 .menu-topo {
     display: flex;
@@ -55,3 +57,8 @@
     width: 26px;
     height: 26px;
 }
+
+input {
+    border: 0px;
+}
+
