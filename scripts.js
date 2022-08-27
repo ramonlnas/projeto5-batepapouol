@@ -1,5 +1,6 @@
 let mensagens = [];
 let nome;
+let MsgGeral = [];
 //cadastro do nome no servidor
 
 function cadastroNome (nomeEspecifico) {
@@ -42,6 +43,7 @@ function dadosMsg(respostaGerais) {
     mensagens = respostaGerais.data;
     console.log(mensagens);
     renderizarMensagens();
+    FiltroMsgGeral();
 }
 
 
@@ -51,12 +53,33 @@ function renderizarMensagens () {
     elemento.innerHTML = '';
 
     for(let i = 0; i < mensagens.length; i++) {
-
-        elemento.innerHTML += `
-            <div>
-                <p>(${mensagens[i].time}) ${mensagens[i].from} ${mensagens[i].text}:</p>
+        const type = mensagens[i].type;
+        if (type === 'status') {
+            let msgS = `
+            <div class = "entrar-sair">
+                <p>(${mensagens[i].time}) ${mensagens[i].from}: ${mensagens[i].text}</p>
             </div>
-        `
+            `;
+            elemento.innerHTML += msgS;
+        }
+        if (type === 'message') {
+           let msgM = `
+            <div class = "geral">
+                <p>(${mensagens[i].time}) <span><strong>${mensagens[i].from}</strong>:</span> para ${mensagens[i].to} ${mensagens[i].text}</p>
+            </div>
+        `;
+            elemento.innerHTML += msgM;
+ 
+        }
+
+        if (type === 'private_message') {
+            let msgP = `
+            <div class = "private">
+                <p class = "private">(${mensagens[i].time}) <span><strong>${mensagens[i].from}</strong>:</span> para ${mensagens[i].to} ${mensagens[i].text}</p>
+            </div>
+        `;
+            elemento.innerHTML += msgP;
+        }
     }
 
     elemento.scrollIntoView({block: "end"});
@@ -98,4 +121,19 @@ function deuRuim (erro) {
     console.log(erro);
     alert('Já possui um usuário com este nome, digite um nome válido.');
 }
+
+function Geral(MsgGeral) {
+    if (MsgGeral.type === "status") {
+        return true;
+    }else {
+        return false;
+    }
+}
+
+function FiltroMsgGeral () {
+    const listaGeral = mensagens.filter(Geral);
+    console.log(lista);
+    
+}
+
 
