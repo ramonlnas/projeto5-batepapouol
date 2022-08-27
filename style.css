@@ -17,7 +17,7 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
     background: #FFFFFF;
     height: 80px;
-    width: 100%;
+    width: 375px;
     position: fixed;
     top: 0;
     left: 0;
@@ -33,14 +33,13 @@
 }
 
 .main {
-    height: 507px;
     background-color: #E5E5E5;
     padding: 26px 8px 0 8px;
 }
 
 .footer {
     height: 80px;
-    width: 100%;
+    width: 375px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -60,5 +59,6 @@
 
 input {
     border: 0px;
+
 }
 

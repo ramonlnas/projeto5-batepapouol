@@ -54,21 +54,48 @@ function renderizarMensagens () {
 
         elemento.innerHTML += `
             <div>
-                <p>${mensagens[i].time} ${mensagens[i].from} ${mensagens[i].text}</p>
+                <p>(${mensagens[i].time}) ${mensagens[i].from} ${mensagens[i].text}:</p>
             </div>
         `
     }
 
+    elemento.scrollIntoView({block: "end"});
 }
 
 
 pegarDados();
+
+setInterval (pegarDados, 3000);
+
+
+ 
+function mandarMsg() {
+
+    const elementoMsg = document.querySelector('input')
+    //colocando no formarto que a msg quer
+
+    const Msg = {
+
+        from: nome.name,
+        to: "Todos",
+        text: elementoMsg.value,
+        type: "message"
+};
+
+    const promisse = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', Msg)
+    promisse.then(pegarDados);
+   
+
+    renderizarMensagens();
+
+    console.log(Msg);
+}
+
+
 
 
 function deuRuim (erro) {
     console.log(erro);
     alert('Já possui um usuário com este nome, digite um nome válido.');
 }
- 
-
 
